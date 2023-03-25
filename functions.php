@@ -33,4 +33,23 @@
         mysqli_query($conn, "DELETE FROM akun WHERE id=$id");
         return mysqli_affected_rows($conn);
     }
+
+    function ubah($data){
+        global $conn;
+
+        $id = $data["id"];
+        $username = htmlspecialchars($data["username"]);
+        $password = htmlspecialchars($data["password"]);
+        $bio = htmlspecialchars($data["bio"]);
+
+        $query = "UPDATE akun SET
+                    username = '$username',
+                    password = '$password',
+                    bio = '$bio'
+                WHERE id = $id;
+                    ";
+
+        mysqli_query($conn, $query);
+        return mysqli_affected_rows($conn);
+    }
 ?>
