@@ -12,7 +12,7 @@
     } else {
         echo "
             <script>
-                alert('Succsessfully added');
+                alert('failed to delete');
                 document.location.href = 'index.php';
             </script>
         ";
