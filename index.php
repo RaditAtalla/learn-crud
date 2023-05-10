@@ -1,6 +1,14 @@
 <?php 
     require "functions.php";
     $accounts = query("SELECT * FROM akun");
+
+    if (isset($_POST['cari'])) {
+        $accounts = cari($_POST['keyword']);
+    }
+
+    if (isset($_POST['reset'])) {
+        $accounts = query("SELECT * FROM akun");
+    }
 ?>
 
 <!DOCTYPE html>
@@ -16,6 +24,12 @@
     <a href="add.php">Add account</a>
     <br><br>
 
+    <form action="" method="post">
+        <input type="text" name="keyword" size="30" autofocus autocomplete="off">
+        <button type="submit" name="cari">Cari</button>
+        <button type="submit" name="reset">Reset</button>
+    </form>
+    <br>
     <table border="1" cellpadding="10" cellspacing="0">
         <tr>
             <th>ID.</th>

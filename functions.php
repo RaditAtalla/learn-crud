@@ -52,4 +52,15 @@
         mysqli_query($conn, $query);
         return mysqli_affected_rows($conn);
     }
+
+    function cari($keyword){
+        $query = "SELECT * FROM akun WHERE
+                    id LIKE '%$keyword%' OR
+                    username LIKE '%$keyword%' OR
+                    password LIKE '%$keyword%' OR
+                    bio LIKE '%$keyword%'
+        ";
+
+        return query($query);
+    }
 ?>
